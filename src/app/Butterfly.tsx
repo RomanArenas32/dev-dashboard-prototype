@@ -12,20 +12,9 @@ export default function Butterfly() {
   if (!mounted) return null;
 
   return (
-    <>
-      {/* Mariposa 1 */}
-      <div className="butterfly butterfly-1" aria-hidden="true">
-        <ButterflyIcon color1="#34d399" color2="#6ee7b7" />
-      </div>
-      {/* Mariposa 2 */}
-      <div className="butterfly butterfly-2" aria-hidden="true">
-        <ButterflyIcon color1="#60a5fa" color2="#93c5fd" />
-      </div>
-      {/* Mariposa 3 */}
-      <div className="butterfly butterfly-3" aria-hidden="true">
-        <ButterflyIcon color1="#a78bfa" color2="#c4b5fd" />
-      </div>
-    </>
+    <div className="butterfly butterfly-1" aria-hidden="true">
+      <ButterflyIcon color1="#34d399" color2="#6ee7b7" />
+    </div>
   );
 }
 
