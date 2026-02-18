@@ -560,7 +560,7 @@ export default function Home() {
                 ))}
               </div>
               <div className="mt-3 border-t border-zinc-800 pt-3 text-center text-[10px] text-zinc-500">
-                Total: <span className="font-medium text-zinc-300">206 tareas</span> en 6 proyectos
+                Total: <span className="font-medium text-zinc-300">258 tareas</span> en 6 modulos
               </div>
             </div>
           </div>
