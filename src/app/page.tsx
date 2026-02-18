@@ -15,6 +15,7 @@ export default function Home() {
         <div className="hidden gap-6 text-sm text-zinc-400 md:flex">
           <a href="#contexto" className="transition-colors hover:text-white">Contexto</a>
           <a href="#dashboard" className="transition-colors hover:text-white">Dashboard</a>
+          <a href="#devportal" className="transition-colors hover:text-white">Dev Portal</a>
           <a href="#reportes" className="transition-colors hover:text-white">Reportes</a>
           <a href="#beneficios" className="transition-colors hover:text-white">Beneficios</a>
         </div>
@@ -232,6 +233,305 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== DEV PORTAL ===== */}
+      <section id="devportal" className="py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="mb-10 text-center">
+            <span className="rounded-full border border-purple-500/20 bg-purple-500/10 px-3 py-1 text-xs font-medium text-purple-400">
+              Dev Portal
+            </span>
+            <h2 className="mt-4 text-3xl font-bold tracking-tight">
+              Herramientas para Desarrolladores
+            </h2>
+            <p className="mt-2 text-sm text-zinc-500">
+              Gestion de equipo, metricas de codigo y visibilidad del pipeline de desarrollo
+            </p>
+          </div>
+
+          {/* Developer Team Overview */}
+          <div className="mb-6">
+            <h3 className="mb-4 text-sm font-semibold text-zinc-300">Equipo de Desarrollo</h3>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                { name: "Maria Garcia", role: "Frontend Lead", avatar: "MG", commits: 47, prs: 12, reviews: 18, status: "online", statusColor: "bg-emerald-400" },
+                { name: "Carlos Lopez", role: "Backend Dev", avatar: "CL", commits: 35, prs: 8, reviews: 22, status: "online", statusColor: "bg-emerald-400" },
+                { name: "Ana Torres", role: "Full Stack", avatar: "AT", commits: 29, prs: 10, reviews: 15, status: "in meeting", statusColor: "bg-amber-400" },
+                { name: "Diego Ruiz", role: "DevOps", avatar: "DR", commits: 18, prs: 6, reviews: 9, status: "offline", statusColor: "bg-zinc-500" },
+              ].map((dev) => (
+                <div key={dev.name} className="rounded-2xl border border-zinc-800 bg-zinc-900 p-5 transition-colors hover:border-zinc-700">
+                  <div className="flex items-center gap-3">
+                    <div className="relative">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/20 text-xs font-bold text-purple-400">
+                        {dev.avatar}
+                      </div>
+                      <div className={`absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-zinc-900 ${dev.statusColor}`} />
+                    </div>
+                    <div>
+                      <p className="text-sm font-semibold">{dev.name}</p>
+                      <p className="text-xs text-zinc-500">{dev.role}</p>
+                    </div>
+                  </div>
+                  <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+                    <div>
+                      <p className="text-lg font-bold text-zinc-200">{dev.commits}</p>
+                      <p className="text-[10px] text-zinc-500">Commits</p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold text-zinc-200">{dev.prs}</p>
+                      <p className="text-[10px] text-zinc-500">PRs</p>
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold text-zinc-200">{dev.reviews}</p>
+                      <p className="text-[10px] text-zinc-500">Reviews</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Git Activity Heatmap + Code Quality */}
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+            {/* Git Heatmap */}
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-sm font-semibold text-zinc-300">Actividad Git — Ultima Semana</h3>
+                <span className="text-xs text-zinc-500">129 commits totales</span>
+              </div>
+              <div className="space-y-2">
+                {[
+                  { day: "Lun", values: [3, 5, 2, 8, 4, 1, 6, 3, 7, 2, 4, 5] },
+                  { day: "Mar", values: [1, 4, 6, 3, 7, 5, 2, 8, 1, 6, 3, 4] },
+                  { day: "Mie", values: [5, 2, 7, 1, 3, 8, 4, 2, 6, 1, 5, 3] },
+                  { day: "Jue", values: [2, 6, 1, 5, 8, 3, 7, 4, 2, 3, 1, 6] },
+                  { day: "Vie", values: [4, 3, 5, 2, 1, 6, 3, 5, 4, 7, 2, 1] },
+                ].map((row) => (
+                  <div key={row.day} className="flex items-center gap-2">
+                    <span className="w-8 text-xs text-zinc-500">{row.day}</span>
+                    <div className="flex gap-1">
+                      {row.values.map((v, i) => (
+                        <div
+                          key={i}
+                          className="h-6 w-6 rounded-sm"
+                          title={`${v} commits`}
+                          style={{
+                            backgroundColor:
+                              v === 0
+                                ? "rgb(39, 39, 42)"
+                                : v <= 2
+                                ? "rgba(16, 185, 129, 0.2)"
+                                : v <= 4
+                                ? "rgba(16, 185, 129, 0.4)"
+                                : v <= 6
+                                ? "rgba(16, 185, 129, 0.6)"
+                                : "rgba(16, 185, 129, 0.85)",
+                          }}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-3 flex items-center gap-2 text-[10px] text-zinc-500">
+                <span>Menos</span>
+                {[0.1, 0.2, 0.4, 0.6, 0.85].map((op) => (
+                  <div
+                    key={op}
+                    className="h-3 w-3 rounded-sm"
+                    style={{ backgroundColor: `rgba(16, 185, 129, ${op})` }}
+                  />
+                ))}
+                <span>Mas</span>
+              </div>
+            </div>
+
+            {/* Code Quality Metrics */}
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+              <h3 className="mb-4 text-sm font-semibold text-zinc-300">Calidad del Codigo</h3>
+              <div className="space-y-4">
+                {[
+                  { metric: "Cobertura de Tests", value: 73, target: 80, color: "bg-amber-500", unit: "%" },
+                  { metric: "Deuda Tecnica", value: 12, target: 0, color: "bg-red-400", unit: " issues" },
+                  { metric: "Code Review Turnaround", value: 85, target: 100, color: "bg-emerald-500", unit: "% < 24h" },
+                  { metric: "Build Success Rate", value: 94, target: 99, color: "bg-blue-500", unit: "%" },
+                ].map((item) => (
+                  <div key={item.metric}>
+                    <div className="mb-1 flex items-center justify-between text-xs">
+                      <span className="text-zinc-400">{item.metric}</span>
+                      <span className="font-mono text-zinc-300">{item.value}{item.unit}</span>
+                    </div>
+                    <div className="h-2 overflow-hidden rounded-full bg-zinc-800">
+                      <div
+                        className={`animate-bar h-full rounded-full ${item.color}`}
+                        style={{ width: `${Math.min(item.value, 100)}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 rounded-lg border border-amber-500/20 bg-amber-500/5 p-3">
+                <p className="text-xs text-amber-400">
+                  ⚠ Cobertura de tests por debajo del objetivo (80%). Se recomienda priorizar tests en el modulo de Billing.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Deployment Pipeline + PR Tracker */}
+          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+            {/* Deployment Pipeline */}
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+              <h3 className="mb-4 text-sm font-semibold text-zinc-300">Pipeline de Despliegue</h3>
+              <div className="space-y-3">
+                {[
+                  { env: "Production", version: "v2.4.1", status: "Estable", time: "hace 2 dias", statusColor: "bg-emerald-500/10 text-emerald-400", dot: "bg-emerald-400" },
+                  { env: "Staging", version: "v2.5.0-rc.3", status: "Desplegando", time: "hace 5 min", statusColor: "bg-blue-500/10 text-blue-400", dot: "bg-blue-400 animate-pulse" },
+                  { env: "Development", version: "v2.5.0-dev.47", status: "Build fallido", time: "hace 23 min", statusColor: "bg-red-500/10 text-red-400", dot: "bg-red-400" },
+                  { env: "QA", version: "v2.4.2-qa.1", status: "En pruebas", time: "hace 1 hora", statusColor: "bg-amber-500/10 text-amber-400", dot: "bg-amber-400" },
+                ].map((deploy) => (
+                  <div key={deploy.env} className="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-950 px-4 py-3">
+                    <div className="flex items-center gap-3">
+                      <div className={`h-2 w-2 rounded-full ${deploy.dot}`} />
+                      <div>
+                        <p className="text-sm font-medium">{deploy.env}</p>
+                        <p className="font-mono text-[10px] text-zinc-500">{deploy.version}</p>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <span className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${deploy.statusColor}`}>
+                        {deploy.status}
+                      </span>
+                      <p className="mt-1 text-[10px] text-zinc-600">{deploy.time}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 flex gap-3 text-xs">
+                <div className="flex-1 rounded-lg bg-zinc-950 p-3 text-center">
+                  <p className="text-lg font-bold text-zinc-200">23</p>
+                  <p className="text-zinc-500">Deploys / semana</p>
+                </div>
+                <div className="flex-1 rounded-lg bg-zinc-950 p-3 text-center">
+                  <p className="text-lg font-bold text-zinc-200">4.2<span className="text-xs text-zinc-500">min</span></p>
+                  <p className="text-zinc-500">Build promedio</p>
+                </div>
+                <div className="flex-1 rounded-lg bg-zinc-950 p-3 text-center">
+                  <p className="text-lg font-bold text-emerald-400">94%</p>
+                  <p className="text-zinc-500">Exito CI/CD</p>
+                </div>
+              </div>
+            </div>
+
+            {/* PR & Code Review Tracker */}
+            <div className="rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+              <h3 className="mb-4 text-sm font-semibold text-zinc-300">Pull Requests Activos</h3>
+              <div className="space-y-3">
+                {[
+                  { title: "feat: streaming de respuestas IA", author: "MG", branch: "feat/ai-streaming", reviewers: 2, comments: 5, status: "approved", statusColor: "text-emerald-400", checks: "passed" },
+                  { title: "fix: memory leak en WebSocket", author: "CL", branch: "fix/ws-memory", reviewers: 1, comments: 3, status: "changes requested", statusColor: "text-amber-400", checks: "passed" },
+                  { title: "refactor: billing module v2", author: "AT", branch: "refactor/billing-v2", reviewers: 0, comments: 0, status: "awaiting review", statusColor: "text-zinc-400", checks: "running" },
+                  { title: "chore: upgrade dependencies", author: "DR", branch: "chore/deps-update", reviewers: 1, comments: 1, status: "approved", statusColor: "text-emerald-400", checks: "failed" },
+                  { title: "feat: dashboard de analytics", author: "MG", branch: "feat/analytics-dash", reviewers: 2, comments: 8, status: "in review", statusColor: "text-blue-400", checks: "passed" },
+                ].map((pr) => (
+                  <div key={pr.branch} className="rounded-lg border border-zinc-800 bg-zinc-950 p-3">
+                    <div className="flex items-start justify-between gap-2">
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-xs font-medium text-zinc-200">{pr.title}</p>
+                        <p className="mt-0.5 font-mono text-[10px] text-zinc-600">{pr.branch}</p>
+                      </div>
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-purple-500/20 text-[10px] font-bold text-purple-400">
+                        {pr.author}
+                      </div>
+                    </div>
+                    <div className="mt-2 flex items-center gap-3 text-[10px] text-zinc-500">
+                      <span className={`font-medium ${pr.statusColor}`}>{pr.status}</span>
+                      <span>👥 {pr.reviewers}</span>
+                      <span>💬 {pr.comments}</span>
+                      <span className={pr.checks === "passed" ? "text-emerald-400" : pr.checks === "failed" ? "text-red-400" : "text-amber-400"}>
+                        {pr.checks === "passed" ? "✓ checks" : pr.checks === "failed" ? "✗ checks" : "⟳ checks"}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Team Workload Distribution */}
+          <div className="mt-6 rounded-2xl border border-zinc-800 bg-zinc-900 p-6">
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="text-sm font-semibold text-zinc-300">Distribucion de Carga del Equipo</h3>
+              <span className="rounded-full border border-zinc-700 px-3 py-1 text-[10px] text-zinc-400">Ciclo 14 — Semana 2</span>
+            </div>
+            <div className="space-y-4">
+              {[
+                { name: "Maria Garcia", tasks: 7, capacity: 8, inProgress: 3, review: 2, done: 2, blocked: 0 },
+                { name: "Carlos Lopez", tasks: 6, capacity: 8, inProgress: 2, review: 1, done: 3, blocked: 0 },
+                { name: "Ana Torres", tasks: 8, capacity: 8, inProgress: 4, review: 1, done: 2, blocked: 1 },
+                { name: "Diego Ruiz", tasks: 5, capacity: 6, inProgress: 2, review: 0, done: 3, blocked: 0 },
+              ].map((dev) => (
+                <div key={dev.name} className="flex items-center gap-4">
+                  <span className="w-28 text-xs font-medium text-zinc-300">{dev.name}</span>
+                  <div className="flex-1">
+                    <div className="flex h-6 overflow-hidden rounded bg-zinc-800">
+                      <div className="flex items-center justify-center bg-blue-500/80 text-[9px] font-medium text-white" style={{ width: `${(dev.inProgress / dev.capacity) * 100}%` }}>
+                        {dev.inProgress > 0 && dev.inProgress}
+                      </div>
+                      <div className="flex items-center justify-center bg-amber-500/80 text-[9px] font-medium text-white" style={{ width: `${(dev.review / dev.capacity) * 100}%` }}>
+                        {dev.review > 0 && dev.review}
+                      </div>
+                      <div className="flex items-center justify-center bg-emerald-500/80 text-[9px] font-medium text-white" style={{ width: `${(dev.done / dev.capacity) * 100}%` }}>
+                        {dev.done > 0 && dev.done}
+                      </div>
+                      {dev.blocked > 0 && (
+                        <div className="flex items-center justify-center bg-red-500/80 text-[9px] font-medium text-white" style={{ width: `${(dev.blocked / dev.capacity) * 100}%` }}>
+                          {dev.blocked}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <span className="w-14 text-right font-mono text-xs text-zinc-500">
+                    {dev.tasks}/{dev.capacity}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 flex items-center gap-4 border-t border-zinc-800 pt-4 text-[10px] text-zinc-500">
+              <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-sm bg-blue-500/80" /> En progreso</span>
+              <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-sm bg-amber-500/80" /> En revision</span>
+              <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-sm bg-emerald-500/80" /> Completado</span>
+              <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-sm bg-red-500/80" /> Bloqueado</span>
+              {(() => {
+                const totalTasks = 26;
+                const totalCapacity = 30;
+                const pct = Math.round((totalTasks / totalCapacity) * 100);
+                return (
+                  <span className="ml-auto font-medium text-zinc-400">
+                    Capacidad del equipo: <span className={pct > 90 ? "text-red-400" : pct > 75 ? "text-amber-400" : "text-emerald-400"}>{pct}%</span>
+                  </span>
+                );
+              })()}
+            </div>
+          </div>
+
+          {/* Quick Actions / Dev Tools */}
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { icon: "⚡", title: "Generar Reporte", desc: "Exportar metricas del sprint actual en PDF o CSV", color: "border-emerald-500/20 hover:border-emerald-500/40 hover:bg-emerald-500/5" },
+              { icon: "🔔", title: "Alertas Personalizadas", desc: "Configurar notificaciones de builds, PRs y deploys", color: "border-blue-500/20 hover:border-blue-500/40 hover:bg-blue-500/5" },
+              { icon: "📈", title: "Tendencias", desc: "Comparar rendimiento entre sprints anteriores", color: "border-purple-500/20 hover:border-purple-500/40 hover:bg-purple-500/5" },
+              { icon: "🔗", title: "Integraciones", desc: "Conectar con GitHub, Jira, Slack y mas herramientas", color: "border-amber-500/20 hover:border-amber-500/40 hover:bg-amber-500/5" },
+            ].map((action) => (
+              <div key={action.title} className={`cursor-pointer rounded-xl border p-5 transition-all ${action.color}`}>
+                <span className="text-2xl">{action.icon}</span>
+                <h4 className="mt-3 text-sm font-semibold">{action.title}</h4>
+                <p className="mt-1 text-xs leading-relaxed text-zinc-500">{action.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
