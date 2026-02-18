@@ -369,19 +369,19 @@ export default function Home() {
               </div>
               <div className="space-y-2 text-xs">
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-2 text-zinc-400"><span className="h-2.5 w-2.5 rounded-sm bg-amber-400" /> Nuevas Funcionalidades</span>
+                  <span className="flex items-center gap-2 text-zinc-400"><span className="h-2.5 w-2.5 rounded-sm bg-amber-400" /> Features & Desarrollo</span>
                   <span className="font-medium text-zinc-300">120</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-2 text-zinc-400"><span className="h-2.5 w-2.5 rounded-sm bg-emerald-400" /> UX Research</span>
+                  <span className="flex items-center gap-2 text-zinc-400"><span className="h-2.5 w-2.5 rounded-sm bg-emerald-400" /> Bug Fixes</span>
                   <span className="font-medium text-zinc-300">60</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-2 text-zinc-400"><span className="h-2.5 w-2.5 rounded-sm bg-red-400" /> Mantenimiento y Rediseno</span>
+                  <span className="flex items-center gap-2 text-zinc-400"><span className="h-2.5 w-2.5 rounded-sm bg-red-400" /> Deuda Tecnica & Refactor</span>
                   <span className="font-medium text-zinc-300">25</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="flex items-center gap-2 text-zinc-400"><span className="h-2.5 w-2.5 rounded-sm bg-purple-400" /> Documentacion</span>
+                  <span className="flex items-center gap-2 text-zinc-400"><span className="h-2.5 w-2.5 rounded-sm bg-purple-400" /> DevOps & Infra</span>
                   <span className="font-medium text-zinc-300">12</span>
                 </div>
               </div>
@@ -394,9 +394,9 @@ export default function Home() {
               </span>
               <div className="mt-4 flex items-end gap-4" style={{ height: "180px" }}>
                 {[
-                  { name: "Jose A.", completed: 45, inProgress: 35, todo: 6, total: 86 },
-                  { name: "Josselyn E.", completed: 38, inProgress: 28, todo: 12, total: 78 },
-                  { name: "Fiorela D.", completed: 30, inProgress: 20, todo: 15, total: 65 },
+                  { name: "Maria G.", completed: 45, inProgress: 35, todo: 6, total: 86 },
+                  { name: "Carlos L.", completed: 38, inProgress: 28, todo: 12, total: 78 },
+                  { name: "Diego R.", completed: 30, inProgress: 20, todo: 15, total: 65 },
                 ].map((m) => {
                   const max = 86;
                   return (
@@ -479,10 +479,10 @@ export default function Home() {
               </div>
               <div className="space-y-3">
                 {[
-                  { author: "Kieran Burke", time: "Today, 10:00 AM", target: "Fabian Mezarina", msg: "Action: We should modify the filter options in t...", color: "bg-blue-500" },
-                  { author: "Maria Salazar", time: "Yesterday, 12:45 PM", target: "Jose Agreda", msg: "Looks good! Just a minor tweak on the spacing of...", color: "bg-emerald-500" },
-                  { author: "Carlos Vega", time: "Yesterday, 9:30 AM", target: "Fiorela Diaz", msg: "The API response format needs to match the new sch...", color: "bg-amber-500" },
-                  { author: "Ana Torres", time: "Feb 15, 3:20 PM", target: "Josselyn Espinoza", msg: "Can we add dark mode toggle before the next rel...", color: "bg-purple-500" },
+                  { author: "Maria Garcia", time: "Today, 10:00 AM", target: "Carlos Lopez", msg: "El endpoint /api/auth/refresh devuelve 500 cuando el token...", color: "bg-blue-500" },
+                  { author: "Diego Ruiz", time: "Yesterday, 12:45 PM", target: "Maria Garcia", msg: "LGTM! Solo falta agregar el retry en el WebSocket client...", color: "bg-emerald-500" },
+                  { author: "Carlos Lopez", time: "Yesterday, 9:30 AM", target: "Ana Torres", msg: "La query de reportes tarda 3s, necesitamos agregar index...", color: "bg-amber-500" },
+                  { author: "Ana Torres", time: "Feb 15, 3:20 PM", target: "Diego Ruiz", msg: "El build de staging fallo por la nueva dep de sharp...", color: "bg-purple-500" },
                 ].map((f, i) => (
                   <div key={i} className="cursor-pointer rounded-lg border border-zinc-800 p-3 transition-colors hover:border-zinc-700 hover:bg-zinc-800/30">
                     <div className="flex items-center justify-between">
@@ -514,11 +514,11 @@ export default function Home() {
                   <span>0%</span>
                 </div>
                 {[
-                  { name: "Xynapse", pct: 80, color: "bg-emerald-500/70" },
-                  { name: "NexGen", pct: 55, color: "bg-blue-500/70" },
-                  { name: "InnovaT.", pct: 35, color: "bg-amber-500/70" },
-                  { name: "DesignL.", pct: 90, color: "bg-purple-500/70" },
-                  { name: "Creative", pct: 20, color: "bg-red-400/70" },
+                  { name: "Auth API", pct: 80, color: "bg-emerald-500/70" },
+                  { name: "Chat IA", pct: 55, color: "bg-blue-500/70" },
+                  { name: "Billing", pct: 35, color: "bg-amber-500/70" },
+                  { name: "Analytics", pct: 90, color: "bg-purple-500/70" },
+                  { name: "Integrac.", pct: 20, color: "bg-red-400/70" },
                 ].map((p) => (
                   <div key={p.name} className="flex flex-1 flex-col items-center gap-1">
                     <div className="flex w-full items-end justify-center" style={{ height: "170px" }}>
