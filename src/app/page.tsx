@@ -544,12 +544,12 @@ export default function Home() {
               </div>
               <div className="space-y-1">
                 {[
-                  { name: "Xynapse", tasks: 121, color: "bg-emerald-500" },
-                  { name: "Wedly", tasks: 2, color: "bg-blue-500" },
-                  { name: "NexGen Corp", tasks: 45, color: "bg-amber-500" },
-                  { name: "InnovaTech", tasks: 18, color: "bg-purple-500" },
-                  { name: "DesignLab", tasks: 8, color: "bg-red-400" },
-                  { name: "Creative Solutions", tasks: 12, color: "bg-orange-400" },
+                  { name: "Xynapse Core", tasks: 121, color: "bg-emerald-500" },
+                  { name: "Auth & Security", tasks: 34, color: "bg-blue-500" },
+                  { name: "Chat IA Module", tasks: 45, color: "bg-amber-500" },
+                  { name: "Billing System", tasks: 18, color: "bg-purple-500" },
+                  { name: "Analytics Engine", tasks: 28, color: "bg-red-400" },
+                  { name: "Integraciones API", tasks: 12, color: "bg-orange-400" },
                 ].map((p) => (
                   <div key={p.name} className="flex cursor-pointer items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-zinc-800/50">
                     <div className={`h-3 w-3 shrink-0 rounded ${p.color}`} />
