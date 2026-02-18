@@ -29,3 +29,89 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* ===== Butterfly Animation ===== */
+.butterfly {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(52, 211, 153, 0.3));
+}
+
+/* Aleteo de las alas */
+.wing-left {
+  transform-origin: 50px 50px;
+  animation: flap-left 0.2s ease-in-out infinite alternate;
+}
+.wing-right {
+  transform-origin: 50px 50px;
+  animation: flap-right 0.2s ease-in-out infinite alternate;
+}
+
+@keyframes flap-left {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(60deg); }
+}
+@keyframes flap-right {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(-60deg); }
+}
+
+/* Trayectoria mariposa 1 - recorrido amplio */
+.butterfly-1 {
+  animation: fly-path-1 18s ease-in-out infinite, float-y 3s ease-in-out infinite;
+}
+
+@keyframes fly-path-1 {
+  0%   { top: 20%; left: -5%; transform: rotate(10deg) scale(0.9); }
+  10%  { top: 10%; left: 15%; transform: rotate(-15deg) scale(1); }
+  20%  { top: 30%; left: 35%; transform: rotate(5deg) scale(1.1); }
+  30%  { top: 15%; left: 55%; transform: rotate(-10deg) scale(0.9); }
+  40%  { top: 40%; left: 70%; transform: rotate(20deg) scale(1); }
+  50%  { top: 60%; left: 85%; transform: rotate(-5deg) scale(1.1); }
+  60%  { top: 75%; left: 65%; transform: rotate(15deg) scale(0.9); }
+  70%  { top: 50%; left: 45%; transform: rotate(-20deg) scale(1); }
+  80%  { top: 35%; left: 25%; transform: rotate(10deg) scale(1.1); }
+  90%  { top: 15%; left: 10%; transform: rotate(-10deg) scale(0.9); }
+  100% { top: 20%; left: -5%; transform: rotate(10deg) scale(0.9); }
+}
+
+/* Trayectoria mariposa 2 - diagonal */
+.butterfly-2 {
+  animation: fly-path-2 22s ease-in-out infinite 3s, float-y 2.5s ease-in-out infinite;
+}
+
+@keyframes fly-path-2 {
+  0%   { top: 80%; left: 105%; transform: rotate(-10deg) scale(0.8); }
+  15%  { top: 60%; left: 80%; transform: rotate(15deg) scale(0.9); }
+  30%  { top: 45%; left: 55%; transform: rotate(-5deg) scale(1); }
+  45%  { top: 25%; left: 30%; transform: rotate(10deg) scale(0.9); }
+  55%  { top: 10%; left: 15%; transform: rotate(-15deg) scale(0.8); }
+  65%  { top: 30%; left: 25%; transform: rotate(5deg) scale(0.9); }
+  80%  { top: 55%; left: 60%; transform: rotate(-10deg) scale(1); }
+  90%  { top: 70%; left: 85%; transform: rotate(15deg) scale(0.9); }
+  100% { top: 80%; left: 105%; transform: rotate(-10deg) scale(0.8); }
+}
+
+/* Trayectoria mariposa 3 - circular */
+.butterfly-3 {
+  animation: fly-path-3 25s ease-in-out infinite 7s, float-y 3.5s ease-in-out infinite;
+}
+
+@keyframes fly-path-3 {
+  0%   { top: 50%; left: 50%; transform: rotate(0deg) scale(0.7); }
+  12%  { top: 20%; left: 65%; transform: rotate(15deg) scale(0.8); }
+  25%  { top: 10%; left: 85%; transform: rotate(-10deg) scale(0.9); }
+  37%  { top: 30%; left: 95%; transform: rotate(5deg) scale(0.8); }
+  50%  { top: 60%; left: 80%; transform: rotate(-15deg) scale(0.7); }
+  62%  { top: 80%; left: 55%; transform: rotate(10deg) scale(0.8); }
+  75%  { top: 70%; left: 25%; transform: rotate(-5deg) scale(0.9); }
+  87%  { top: 40%; left: 35%; transform: rotate(15deg) scale(0.8); }
+  100% { top: 50%; left: 50%; transform: rotate(0deg) scale(0.7); }
+}
+
+/* Movimiento sutil vertical adicional */
+@keyframes float-y {
+  0%, 100% { margin-top: 0px; }
+  50% { margin-top: -15px; }
+}
