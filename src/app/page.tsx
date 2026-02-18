@@ -293,9 +293,9 @@ export default function Home() {
               </div>
               <div className="space-y-1">
                 {[
-                  { task: "Client Requirements...", project: "Xynapse", priority: "High", pColor: "text-red-400" },
-                  { task: "Scope Definition an...", project: "Xynapse", priority: "Medium", pColor: "text-amber-400" },
-                  { task: "User Experienc...", project: "NexGen Corp", priority: "High", pColor: "text-red-400" },
+                  { task: "Hotfix WebSocket crash...", project: "Xynapse", priority: "High", pColor: "text-red-400" },
+                  { task: "Deploy staging v2.5...", project: "Xynapse", priority: "Medium", pColor: "text-amber-400" },
+                  { task: "Fix memory leak Redis...", project: "Xynapse", priority: "High", pColor: "text-red-400" },
                 ].map((t, i) => (
                   <div key={i} className="flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-zinc-800/50">
                     <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-red-500/20 text-[10px] text-red-400">!</div>
@@ -321,9 +321,9 @@ export default function Home() {
               </div>
               <div className="space-y-1">
                 {[
-                  { task: "Client Requirements...", project: "Xynapse" },
-                  { task: "Scope Definition an...", project: "Xynapse" },
-                  { task: "User Experienc...", project: "NexGen Corp" },
+                  { task: "Refactor auth middleware...", project: "Xynapse" },
+                  { task: "Setup E2E tests Cypress...", project: "Xynapse" },
+                  { task: "Docker compose update...", project: "Xynapse" },
                 ].map((t, i) => (
                   <div key={i} className="flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-zinc-800/50">
                     <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded bg-zinc-800 text-[10px] text-zinc-500">✧</div>
