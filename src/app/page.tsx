@@ -265,12 +265,12 @@ export default function Home() {
               </div>
               <div className="space-y-1">
                 {[
-                  { task: "Client Requirements...", project: "Xynapse", priority: "High", pColor: "text-red-400" },
-                  { task: "User Experience R...", project: "NexGen Corp", priority: "High", pColor: "text-red-400" },
-                  { task: "Scope Definition and...", project: "Xynapse", priority: "Medium", pColor: "text-amber-400" },
-                  { task: "Prototype Devel...", project: "InnovaTech", priority: "Medium", pColor: "text-amber-400" },
-                  { task: "Usability Testing", project: "DesignLab", priority: "Low", pColor: "text-zinc-400" },
-                  { task: "Final Design...", project: "Creative Solutions", priority: "Low", pColor: "text-zinc-400" },
+                  { task: "Fix OAuth token refresh...", project: "Xynapse", priority: "High", pColor: "text-red-400" },
+                  { task: "API rate limiting...", project: "Xynapse", priority: "High", pColor: "text-red-400" },
+                  { task: "Migrate DB schema...", project: "Xynapse", priority: "Medium", pColor: "text-amber-400" },
+                  { task: "Add unit tests billing...", project: "Xynapse", priority: "Medium", pColor: "text-amber-400" },
+                  { task: "Update CI pipeline", project: "Xynapse", priority: "Low", pColor: "text-zinc-400" },
+                  { task: "Refactor logger util...", project: "Xynapse", priority: "Low", pColor: "text-zinc-400" },
                 ].map((t) => (
                   <div key={t.task + t.project} className="flex items-center gap-3 rounded-lg px-2 py-2.5 transition-colors hover:bg-zinc-800/50">
                     <div className="h-4 w-4 shrink-0 rounded-full border-2 border-zinc-600" />
